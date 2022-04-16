@@ -7,7 +7,7 @@ public static void main(String[] args)
 
 	Runtime.getRuntime().addShutdownHook(new Thread() {
 		
-		 public void run() {
+		 public synchronized void run() {
 			System.out.println("Shutdown hook is being executed at the last .. just before JVM shutdown");
 		}
 	});
@@ -15,7 +15,7 @@ public static void main(String[] args)
 	
 	System.out.println("calling System.exit()...");
 	
-	System.exit(0);
+	System.exit(129);
 	
 	System.out.println("after calling System.exit()...");
 }
